@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include mbw_account_service *.css
+recursive-include mbw_account_service *.csv
+recursive-include mbw_account_service *.html
+recursive-include mbw_account_service *.ico
+recursive-include mbw_account_service *.js
+recursive-include mbw_account_service *.json
+recursive-include mbw_account_service *.md
+recursive-include mbw_account_service *.png
+recursive-include mbw_account_service *.py
+recursive-include mbw_account_service *.svg
+recursive-include mbw_account_service *.txt
+recursive-exclude mbw_account_service *.pyc
