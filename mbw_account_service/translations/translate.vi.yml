@@ -1,0 +1,52 @@
+vi:
+  not_found_shift: Ca này chưa đăng ký.
+  invalid_shift: Ca không hợp lệ
+  time_not_in: Thời gian không phù hợp.
+  shift_not_out: Chưa chấm công ra.
+  successfully: Thành công.
+  error: Có lỗi xảy ra.
+  faceid_success: Cập nhật FaceID thành công.
+  not_face_recognition: Không thể nhận dạng khuôn mặt.
+  face_not_found: Bạn chưa đăng ký khuôn mặt.
+  faceid_register_success: Đăng ký FaceID thành công.
+  faceid_verify_success: Xác minh FaceID thành công.
+  faceid_verify_fail: Ảnh chụp không đúng FaceID đã đăng ký.
+  login_success: Đăng nhập thành công.
+  login_error: Đăng nhập thất bại vui lòng kiểm tra tài khoản hoặc mật khẩu.
+  logout_success: Đăng xuất thành công.
+  logout_error: Đăng xuất thất bại.
+  not_allow: Không cho phép.
+  email_send_success: Mật khẩu email đã gửi.
+  email_send_fail: Mật khẩu email gửi không thành công.
+  title_1: Bạn phải
+  check_in: vào trước
+  check_out: ra trước
+  create_success: Tạo mới thành công.
+  create_fail: Tạo mới thất bại
+  employee: Nhân viên
+  title_2: đã nộp đơn
+  from_date: từ ngày
+  to_date: đến ngày
+  title_3: From date không được phép > to date
+  title_4: Nghỉ nửa ngày phải nằm trong khoảng
+  no_location_shift: Bạn không thể chấm công tại đây
+  error_network: Lỗi mạng
+  no_shift: Bạn không có ca
+  user_not_found: Không tìm thấy người dùng
+  cmt_correct: Loại bình luận không đúng
+  leave_not_found: Không tìm thấy đơn từ
+  doc_not_found: Không tìm thấy dữ liệu
+  must_has_hafl_date: Phải có ngày nghỉ nủa ngày
+  name_require: Trường name là bắt buộc
+  invalid_value: Giá trị không hợp lệ
+  update_success: Cập nhật thành công
+  delete_success: Xóa thành công
+  not_found: Không tìm thấy
+  approve_not_setup: Chưa cài đặt người kiểm duyệt
+  attendance_request: Đơn giải trình chấm công
+  leave_application: Nghỉ phép
+  shift_request: Đăng ký ca
+  overtime_request: Tăng ca
+  not_found_setting_map: Vui lòng định cấu hình map trong tài liệu MBW Employee Settings
+  not_found_setting_face: Vui lòng định cấu hình face trong tài liệu MBW Employee Settings
+  not_found_setting_face_s3: Vui lòng định cấu hình face và s3 trong tài liệu MBW Employee Settings
