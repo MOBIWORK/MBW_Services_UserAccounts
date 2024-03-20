@@ -67,7 +67,7 @@ def login(**kwargs):
 
         login_manager = LoginManager()
         login_manager.authenticate(usr, pwd)
-        validate_employee(login_manager.user)
+        # validate_employee(login_manager.user)
         login_manager.post_login()
 
         if frappe.response["message"] == "Logged In":
