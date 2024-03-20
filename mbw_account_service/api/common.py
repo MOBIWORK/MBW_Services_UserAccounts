@@ -50,8 +50,10 @@ def generate_key(user):
     else:
         api_secret = user_details.get_password("api_secret")
         api_key = user_details.get("api_key")
-    employee = frappe.get_doc("Employee", {"user_id": user_details.get('name')}).as_dict()
-    object_id = employee.get('object_id')
+    object_id = ''
+    if frappe.db.exists("Employee", {"user_id": user_details.get('name')}):
+        employee = frappe.get_doc("Employee", {"user_id": user_details.get('name')}).as_dict()
+        object_id = employee.get('object_id')
     return {"api_secret": api_secret, "api_key": api_key, "project_id": dms_settings.ma_du_an, "object_id": object_id}
 
 
