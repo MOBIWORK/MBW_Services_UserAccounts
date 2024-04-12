@@ -86,9 +86,9 @@ def login(**kwargs):
             "key_details": generate_key(login_manager.user),
         })
 
-    except frappe.AuthenticationError:
-        gen_response(404, "Thất bại", [])
-        # exception_handel(e)
+    except frappe.AuthenticationError as fa:
+        # gen_response(404, "Thất bại", [])
+        exception_handel(fa)
         return None
     except Exception as e:
         exception_handel(e)
