@@ -87,10 +87,10 @@ def login(**kwargs):
         })
 
     except frappe.AuthenticationError as fa:
-        # gen_response(404, "Thất bại", [])
-        exception_handel(fa)
+        gen_response(404, _("User or password not valid!"), [])
         return None
     except Exception as e:
+        print("ex")
         exception_handel(e)
 
 def validate_employee(user):
@@ -124,14 +124,13 @@ def reset_password(user):
     try:
         user = frappe.get_doc("User", user)
         if not user.enabled:
-            gen_response(500, "Gửi email thất bại", [])
+            gen_response(500, _("Send mail failure!"), [])
 
         user.validate_reset_password()
         user.reset_password(send_email=True)
 
-        gen_response(200, "Gửi email thành công")
+        gen_response(200, _("Send mail success."))
     except frappe.DoesNotExistError:
         frappe.clear_messages()
-        del frappe.response["exc_type"]
-        gen_response(404, "Người dùng không có", [])
+        gen_response(404, _("User didn't exist!"), [])
         return
