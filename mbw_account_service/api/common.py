@@ -54,7 +54,7 @@ def generate_key(user):
     if frappe.db.exists("Employee", {"user_id": user_details.get('name')}):
         employee = frappe.get_doc("Employee", {"user_id": user_details.get('name')}).as_dict()
         object_id = employee.get('object_id')
-    return {"api_secret": api_secret, "api_key": api_key, "project_id": dms_settings.ma_du_an, "object_id": object_id}
+    return {"api_key": api_key, "api_secret": api_secret, "project_id": dms_settings.ma_du_an, "object_id": object_id}
 
 
 def get_employee_by_user(user, fields=["name"]):
