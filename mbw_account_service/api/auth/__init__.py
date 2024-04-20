@@ -36,7 +36,6 @@ def add_device_notification(user_id, device_name=None, device_id=None):
                 new_doc.insert(ignore_permissions=True)
         return False
     except Exception as e:
-        print('===login', e)
         return False
     
 def remove_device_notification(user_id, device_id):
@@ -73,24 +72,21 @@ def login(**kwargs):
         if frappe.response["message"] == "Logged In":
             emp_data = get_employee_by_user(login_manager.user, fields=[
                                             "name", "employee_name"])
-            # print("emp_data", emp_data)
             frappe.response['message'] = ""
             del frappe.local.response["full_name"]
             del frappe.local.response["home_page"]
-
+            
         # them thiet bi nhan thong bao
         add_device = add_device_notification(
             login_manager.user, device_name, device_id)
 
-        gen_response(200, "Thành công", {
+        return gen_response(200, "Thành công", {
             "key_details": generate_key(login_manager.user),
         })
 
     except frappe.AuthenticationError as fa:
-        gen_response(404, _("User or password not valid!"), [])
-        return None
+        return gen_response(404, _("User or password not valid!"), [])
     except Exception as e:
-        print("ex")
         exception_handel(e)
 
 def validate_employee(user):
@@ -108,12 +104,10 @@ def logout(device_id=None):
         frappe.response["message"] = "Logged Out"
         gen_response(200, "Đẵng xuất thành công")
     except frappe.AuthenticationError:
-        # gen_response(204, i18n.t('translate.logout_error', locale=get_language()), [])
         exception_handel(e)
         return None
     except Exception as e:
         exception_handel(e)
-        # gen_response(500, e, [])
 
 #reset password
 @frappe.whitelist(allow_guest=True)

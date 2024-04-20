@@ -38,7 +38,7 @@ def gen_response(status, message, result=[]):
 # export employee key
 def generate_key(user):
     user_details = frappe.get_doc("User", user)
-    dms_settings = frappe.get_doc("DMS Settings").as_dict()
+    project_id = frappe.get_doc("DMS Settings").ma_du_an
     api_secret = api_key = ""
     if not user_details.api_key and not user_details.api_secret:
         api_secret = frappe.generate_hash(length=15)
@@ -50,11 +50,10 @@ def generate_key(user):
     else:
         api_secret = user_details.get_password("api_secret")
         api_key = user_details.get("api_key")
-    object_id = ''
-    if frappe.db.exists("Employee", {"user_id": user_details.get('name')}):
-        employee = frappe.get_doc("Employee", {"user_id": user_details.get('name')}).as_dict()
-        object_id = employee.get('object_id')
-    return {"api_key": api_key, "api_secret": api_secret, "project_id": dms_settings.ma_du_an, "object_id": object_id}
+    employee_obj_id = ''
+    if frappe.db.exists("Employee", {"user_id": user}):
+        employee_obj_id = frappe.get_value("Employee", {"user_id": user}, 'object_id')
+    return {"api_key": api_key, "api_secret": api_secret, "project_id": project_id, "object_id": employee_obj_id}
 
 
 def get_employee_by_user(user, fields=["name"]):
