@@ -53,7 +53,8 @@ def generate_key(user):
     employee_obj_id = ''
     if frappe.db.exists("Employee", {"user_id": user}):
         employee= frappe.get_value("Employee", {"user_id": user}, 'name')
-        if employee:
+        doctype_meta = frappe.get_meta("Sales Person")
+        if employee and "object_id" in  doctype_meta.fields:
             employee_obj_id = frappe.get_value("Sales Person", {"employee": employee}, 'object_id')
     return {"api_key": api_key, "api_secret": api_secret, "project_id": project_id, "object_id": employee_obj_id}
 
